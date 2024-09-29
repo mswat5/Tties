@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "hotelnft_backend": {
+      "main": "src/hotelnft_backend/main.mo",
+      "type": "motoko"
+    },
+    "hotelnft_frontend": {
+      "dependencies": [
+        "hotelnft_backend"
+      ],
+      "source": [
+        "src/hotelnft_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "hotelnft_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
