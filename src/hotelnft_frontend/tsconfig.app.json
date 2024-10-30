@@ -1,0 +1,23 @@
+{
+ // "extends": "./tsconfig.json",  // Extend the main config
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "react-jsx",
+    
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,             // Ensure emit is not disabled
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "composite": true            // Required for project references
+  },
+  "include": ["src/**/*"],        // Include app's source files
+  "exclude": ["node_modules"]     // Exclude node_modules
+}

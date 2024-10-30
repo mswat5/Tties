@@ -1,30 +1,26 @@
-import { useState } from 'react';
-import { hotelnft_backend } from 'declarations/hotelnft_backend';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Outlets from "./pages/Outlets";
+import Catering from "./pages/Catering";
+import Cart from "./pages/Cart";
+import { HomeCooks } from "./pages/HomeCooks";
 
 function App() {
-  const [greeting, setGreeting] = useState('');
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    hotelnft_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
-
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    <Router>
+      <div className="min-h-screen bg-gray-50">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/outlets" element={<Outlets />} />
+          <Route path="/catering" element={<Catering />} />
+          <Route path="/cooks" element={<HomeCooks />} />
+          {/* <Route path="/laundry" element={<LaundryServices />} /> */}
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
